@@ -6,19 +6,23 @@ public class ScreenPositionerManager : MonoBehaviour
 {
     public void MoveTheScreen(int index)
     {
-        switch(index)
+        gameObject.GetComponent<Animator>().SetInteger("Index", 4);
+        switch (index)
         {
             case 0:
-                gameObject.transform.position = new Vector3(5.7f, 0, 0);
+                gameObject.GetComponent<Animator>().SetInteger("Index", 0);
                 break;
             case 1:
-                gameObject.transform.position = Vector3.zero;
+                gameObject.GetComponent<Animator>().SetInteger("Index", 1);
                 break;
             case 2:
-                gameObject.transform.position = new Vector3(-5.7f, 0, 0);
+                gameObject.GetComponent<Animator>().SetInteger("Index", 2);
                 break;
-
+            case 3:
+                gameObject.GetComponent<Animator>().SetInteger("Index", 3);
+                break;
         };
+        
     }
 
 }
