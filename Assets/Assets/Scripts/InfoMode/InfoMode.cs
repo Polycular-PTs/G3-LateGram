@@ -15,6 +15,8 @@ public class InfoMode : MonoBehaviour
     public GameObject previousClickIndicator;
 
     [SerializeField] GameObject darkener;
+    [SerializeField] GameObject wrongInfoInd;
+    [SerializeField] GameObject correctInfoInd;
 
     private void OnMouseDown()
     {
@@ -52,12 +54,14 @@ public class InfoMode : MonoBehaviour
             if (correctInfo.Contains(toCheckInfo))
             {
                 Debug.Log("Yo die Info passt");
+                correctInfoInd.SetActive(true);
                 correctInfo = "";
                 toCheckInfo = "";
             }
             else
             {
                 Debug.Log("Nö da stimmt was ned...");
+                wrongInfoInd.SetActive(true);
                 correctInfo = "";
                 toCheckInfo = "";
             }
