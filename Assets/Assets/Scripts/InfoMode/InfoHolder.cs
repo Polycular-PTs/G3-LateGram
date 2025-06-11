@@ -6,6 +6,7 @@ public class InfoHolder : MonoBehaviour
 {
     public string info;
     public InfoMode infoModeChecker;
+    
 
     [SerializeField] GameObject clickedIndicator;
     private void OnMouseDown()
@@ -17,11 +18,14 @@ public class InfoHolder : MonoBehaviour
             if (gameObject.tag == "lowerInfo")
             {
                 infoModeChecker.toCheckInfo = info;
+                infoModeChecker.clicksOnInfo++;
             }
             else if (gameObject.tag == "upperInfo")
             {
                 infoModeChecker.correctInfo = info;
+                infoModeChecker.clicksOnInfo++;
             }
+
         }
     }
 }

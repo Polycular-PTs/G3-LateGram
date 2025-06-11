@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class InfoMode : MonoBehaviour
 {
-    private bool check;
+    public int clicksOnInfo;
 
     public bool isItActive;
     public string correctInfo;
@@ -28,33 +28,47 @@ public class InfoMode : MonoBehaviour
         {
             darkener.SetActive(false);
 
-            foreach (GameObject indicator in indicators)
-            {
-                indicator.SetActive(false);
-            }
+            ResetAllIndicators();
 
             correctInfo = "";
             toCheckInfo = "";
             isItActive= false;
-            check = false;
         }
     }
+
+    public void ResetAllIndicators()
+    {
+        foreach (GameObject indicator in indicators)
+        {
+            indicator.SetActive(false);
+        }
+    }
+
     private void Update()
     {
         
-        if (correctInfo != "" && toCheckInfo != "" && check == false)
+        if (correctInfo != "" && toCheckInfo != "")
         {
             if (correctInfo.Contains(toCheckInfo))
             {
                 Debug.Log("Yo die Info passt");
-                check = true;
+                correctInfo = "";
+                toCheckInfo = "";
             }
             else
             {
                 Debug.Log("Nö da stimmt was ned...");
-                check = true;
+                correctInfo = "";
+                toCheckInfo = "";
             }
 
+        }
+        if (clicksOnInfo == 3)
+        {
+            ResetAllIndicators();
+            clicksOnInfo = 0;
+            correctInfo = "";
+            toCheckInfo = "";
         }
     }
 
