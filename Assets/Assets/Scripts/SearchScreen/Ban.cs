@@ -7,8 +7,13 @@ public class Ban : MonoBehaviour
 {
     [SerializeField] bool realProfile;
     [SerializeField] GameObject scribble;
+
+
+    bool youveLost = false;
+
     private void OnMouseDown()
     {
+
         if (realProfile == false)
         {
             scribble.SetActive(true);
